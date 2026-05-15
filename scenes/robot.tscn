@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxo7emqkf6vnm"]
+
+[ext_resource type="Script" path="res://scripts/robot.gd" id="1_robot"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="2_world"]
+
+[sub_resource type="RectangleShape2D" id="Rect"]
+size = Vector2(64, 64)
+
+[node name="Floor" type="Node2D"]
+script = ExtResource("2_world")
+
+[node name="Robot" type="CharacterBody2D" parent="."]
+script = ExtResource("1_robot")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Robot"]
+shape = SubResource("Rect")
+
+[node name="Camera2D" type="Camera2D" parent="Robot"]

@@ -1,0 +1,14 @@
+# Godot specific ignores
+.godot/
+import/
+*.translation
+*.import
+*.bak
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+*.log

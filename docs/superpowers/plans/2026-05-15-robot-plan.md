@@ -1,26 +1,26 @@
-# Robot WASD Controller — Implementation Plan
+# Robot WASD 控制器 —— 实现计划
 
-> **For agentic workers:** Execute inline — this is a 3-file project.
+> **供自动化工作使用：** 直接执行 —— 只有 3 个文件的项目。
 
-**Goal:** A minimal Godot 4 2D project with a WASD-controlled robot drawn via primitives.
+**目标：** 一个最小的 Godot 4 2D 项目，用图元绘制机器人，WASD 控制移动。
 
-**Architecture:** Single scene (Robot as CharacterBody2D), `_draw()` for visuals, `_physics_process()` for movement. Uses Godot's built-in `ui_*` input actions (WASD + arrow keys).
+**架构：** 单场景（Robot 为 CharacterBody2D），`_draw()` 负责视觉，`_physics_process()` 负责移动。使用 Godot 内置的 `ui_*` 输入动作（WASD + 方向键）。
 
-**Tech Stack:** Godot 4.x, GDScript
+**技术栈：** Godot 4.x，GDScript
 
 ---
 
-### Task 1: Create project.godot
+### 任务 1: 创建 project.godot
 
-**Files:**
-- Create: `project.godot`
+**文件：**
+- 创建：`project.godot`
 
-### Task 2: Create robot script
+### 任务 2: 创建机器人脚本
 
-**Files:**
-- Create: `scripts/robot.gd`
+**文件：**
+- 创建：`scripts/robot.gd`
 
-### Task 3: Create main scene
+### 任务 3: 创建主场景
 
-**Files:**
-- Create: `scenes/robot.tscn`
+**文件：**
+- 创建：`scenes/robot.tscn`

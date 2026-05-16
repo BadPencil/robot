@@ -1,41 +1,41 @@
-# Robot WASD Controller — Design Spec
+# Robot WASD 控制器 —— 设计规格
 
-## Goal
+## 目标
 
-A minimal Godot 4 project: a 2D top-down robot that moves with WASD keys. No external assets — all visuals drawn with Godot primitives.
+一个最小的 Godot 4 项目：2D 俯视角机器人，用 WASD 键移动。无需外部资源 —— 所有视觉都用 Godot 图元绘制。
 
-## Architecture
+## 架构
 
-- **Engine**: Godot 4.x
-- **Dimension**: 2D top-down
-- **Scene tree**: `Root → World (Node2D) → Robot (CharacterBody2D) → Body (ColorRect) + Direction (Polygon2D) + CollisionShape2D`
+- **引擎**：Godot 4.x
+- **维度**：2D 俯视角
+- **场景树**：`Root → World (Node2D) → Robot (CharacterBody2D) → Body (ColorRect) + Direction (Polygon2D) + CollisionShape2D`
 
-## Files
+## 文件
 
-| File | Purpose |
-|------|---------|
-| `project.godot` | Godot project config (renderer=2D, entry=robot.tscn) |
-| `scenes/robot.tscn` | Main scene — world root + robot |
-| `scripts/robot.gd` | Robot movement script (extends CharacterBody2D) |
+| 文件 | 用途 |
+|------|------|
+| `project.godot` | Godot 项目配置（renderer=2D, entry=robot.tscn）|
+| `scenes/robot.tscn` | 主场景 —— 世界根节点 + 机器人 |
+| `scripts/robot.gd` | 机器人移动脚本（继承 CharacterBody2D）|
 
-## Robot Visuals
+## 机器人外观
 
-- **Body**: 64×64 blue ColorRect, centered
-- **Direction indicator**: small red triangle (Polygon2D) pointing forward
-- **Collision**: RectangleShape2D matching body size
+- **身体**：64×64 蓝色 ColorRect，居中
+- **方向指示器**：红色小三角（Polygon2D）指向前方
+- **碰撞**：RectangleShape2D，匹配身体大小
 
-## Movement
+## 移动
 
-- `W/A/S/D` maps to `Vector2(0,-1) / Vector2(-1,0) / Vector2(0,1) / Vector2(1,0)`
-- Diagonal input normalized for consistent speed (e.g., W+A → Vector2(-1,-1).normalized())
-- `move_and_slide()` for collision-aware movement
-- Speed: 300 pixels/second
-- `_physics_process(delta)` for frame-rate-independent movement
+- `W/A/S/D` 映射到 `Vector2(0,-1) / Vector2(-1,0) / Vector2(0,1) / Vector2(1,0)`
+- 斜向输入归一化以保持速度一致（例如 W+A → Vector2(-1,-1).normalized()）
+- `move_and_slide()` 实现碰撞感知移动
+- 速度：300 像素/秒
+- `_physics_process(delta)` 实现帧率无关的移动
 
-## Success Criteria
+## 成功标准
 
-- [ ] WASD moves the robot in 8 directions
-- [ ] Robot faces movement direction (triangle rotates)
-- [ ] Moving diagonally is same speed as cardinal directions
-- [ ] Camera follows the robot
-- [ ] Scene runs when pressing F5 in Godot
+- [ ] WASD 控制机器人 8 方向移动
+- [ ] 机器人面向移动方向（三角旋转）
+- [ ] 斜向移动与正方向速度一致
+- [ ] 摄像头跟随机器人
+- [ ] 在 Godot 中按 F5 运行场景
